@@ -23,13 +23,10 @@ public class PlayerSpawnPosition : MonoBehaviour
     // This method moves the XR Rig to the spawn position
     private void MovePlayerToSpawnPosition()
     {
-        // Assuming xrRigCameraOffset refers to the XR Rig GameObject (which should have a Transform component)
-        Transform xrRigTransform = xrRigCameraOffset.transform;  // Get the transform of the XR Rig
+        Transform offset = xrRigCameraOffset.transform;  // Get the transform of the XR Rig
 
-        // Move the XR Rig to the spawn position
-        xrRigTransform.position = spawnPosition.position;
-
-        // If you want to set the rotation as well, you can add this line:
-        xrRigTransform.rotation = spawnPosition.rotation;  // Optional: Set rotation if you want to align the rig's rotation with the spawn position
+        // Move the XR Rig to the spawn position (and also take rotations into account)
+        offset.position = spawnPosition.position;
+        offset.rotation = spawnPosition.rotation; 
     }
 }
