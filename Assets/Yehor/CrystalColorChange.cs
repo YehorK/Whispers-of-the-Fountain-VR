@@ -14,7 +14,7 @@ public class CrystalBehavior : MonoBehaviour
     void Start()
     {
         // Assuming the object of interest is a child of the empty GameObject
-        objectTransform = transform.Find("crystal_1"); // Change "ObjectOfInterest" to your actual child object's name
+        objectTransform = transform.Find("crystal"); // Change "ObjectOfInterest" to your actual child object's name
         if (objectTransform != null)
         {
             objectRenderer = objectTransform.GetComponent<Renderer>(); // Get the Renderer for color changes
