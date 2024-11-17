@@ -8,6 +8,7 @@ public class DeerMoveBetweenPoints : MonoBehaviour
     public float speed = 2.0f;      // Speed of movement
 
     private bool movingToB = true;
+    private bool isFollowingCarrot = false;
 
     void Update()
     {
@@ -16,6 +17,8 @@ public class DeerMoveBetweenPoints : MonoBehaviour
             Debug.LogWarning("Please assign the objectToMove, pointA, and pointB in the Inspector.");
             return;
         }
+
+        if (isFollowingCarrot) return; // Pause movement if following the player
 
         // Determine target based on the current direction
         Transform target = movingToB ? pointB : pointA;
@@ -39,4 +42,11 @@ public class DeerMoveBetweenPoints : MonoBehaviour
             movingToB = !movingToB;
         }
     }
+
+    // Method to start and stop following the player, called from another script
+    public void SetFollowingCarrot(bool follow)
+    {
+        isFollowingCarrot = follow;
+    }
+
 }
