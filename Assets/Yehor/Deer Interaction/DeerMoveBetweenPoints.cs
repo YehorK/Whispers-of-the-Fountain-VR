@@ -10,6 +10,18 @@ public class DeerMoveBetweenPoints : MonoBehaviour
     private bool movingToB = true;
     private bool isFollowingCarrot = false;
 
+    void Start()
+    {
+        // Place the deer at pointA when the game starts
+        if (objectToMove != null && pointA != null)
+        {
+            float startYPositionOffset = 0.06f;
+            Vector3 startPosition = pointA.position;
+            startPosition.y -= startYPositionOffset; // Apply the y-axis offset
+            objectToMove.transform.position = startPosition;
+        }
+    }
+
     void Update()
     {
         if (objectToMove == null || pointA == null || pointB == null)
