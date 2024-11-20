@@ -17,17 +17,27 @@ public class DeerFollowCarrot : MonoBehaviour
 
     void Update()
     {
-        if (carrot == null || deerMovement == null) return;
+        if (carrot == null || deerMovement == null)
+        {
+            Debug.Log("carrot or deerMovement is null");
+
+            return;
+        }
 
         // Check if the carrot is close enough
         float distanceToCarrot = Vector3.Distance(deer.transform.position, carrot.transform.position);
-        //Debug.Log(distanceToCarrot);
+        Debug.Log(distanceToCarrot);
 
-        if (distanceToCarrot <= detectionRange)
+        if (distanceToCarrot <= detectionRange && distanceToCarrot >= 1)
         {
             // Start following the carrot
             deerMovement.SetFollowingCarrot(true);
             FollowCarrot();
+        }
+        else if (distanceToCarrot < 1)
+        {
+            Destroy(carrot);  // Destroy the carrot object
+            deerMovement.SetFollowingCarrot(false);
         }
         else
         {
@@ -35,6 +45,17 @@ public class DeerFollowCarrot : MonoBehaviour
             deerMovement.SetFollowingCarrot(false);
         }
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+
+    //    if (collision.gameObject.CompareTag("Deer"))
+    //    {
+    //        Debug.Log("Deer detected, destroying carrot.");
+    //        Destroy(gameObject);  // Destroy the carrot object
+    //    }
+    //}
+
 
     void FollowCarrot()
     {
