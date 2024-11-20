@@ -774,8 +774,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Whispers of the Fountain VR
-  metroPackageVersion: 
+  metroPackageName: WhispersoftheFountainVR
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -783,7 +783,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Whispers of the Fountain VR
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Whispers of the Fountain VR
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
