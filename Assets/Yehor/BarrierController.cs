@@ -2,32 +2,39 @@ using UnityEngine;
 
 public class BarrierController : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject deer;         // Reference to the deer
-    public GameObject carrot;       // Reference to the carrot
-    public GameObject barrier;      // Reference to the barrier (the object you want to disappear)
-
-    public Vector3 offset = new Vector3(1f, 0f, 0f);  // Offset to reposition player away from barrier
-
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Carrot"))
         {
-            // Move the player slightly back (away from the barrier)
-            player.transform.position -= offset;
-            Debug.Log("Player is blocked by the barrier!");
+            Debug.Log("Carrot");
+            // Temporarily switch to trigger to allow the object to pass through
+            GetComponent<Collider>().isTrigger = true;
         }
 
-        // When the deer enters the barrier, make the barrier disappear
-        if (other.gameObject == deer)
+        if (other.gameObject.CompareTag("Player"))
         {
-            // Disable the barrier
-            if (barrier != null)
-            {
-                barrier.SetActive(false);  // Or use Destroy(barrier) if you want to remove it permanently
-                Debug.Log("Deer has entered, barrier disappears!");
-            }
+            Debug.Log("player");
+            // Temporarily switch to trigger to allow the object to pass through
+            GetComponent<Collider>().isTrigger = false;
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Carrot"))
+        {
+            Debug.Log("2");
+            // Temporarily switch to trigger to allow the object to pass through
+            GetComponent<Collider>().isTrigger = true;
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Palyer");
+            // Temporarily switch to trigger to allow the object to pass through
+            GetComponent<Collider>().isTrigger = false;
         }
     }
+
 }
