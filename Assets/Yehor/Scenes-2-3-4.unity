@@ -446,6 +446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26625759073fb3469adf3dd9b8a462b, type: 3}
+      propertyPath: m_TagString
+      value: Deer
+      objectReference: {fileID: 0}
     - target: {fileID: 1993318323843943275, guid: c26625759073fb3469adf3dd9b8a462b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 25.31941
@@ -716,6 +720,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c26625759073fb3469adf3dd9b8a462b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1342935237}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c26625759073fb3469adf3dd9b8a462b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1342935238}
   m_SourcePrefab: {fileID: 100100000, guid: c26625759073fb3469adf3dd9b8a462b, type: 3}
 --- !u!1001 &76760057
 PrefabInstance:
@@ -2182,11 +2189,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 01f96d0e53ecae247833053a226c0406, type: 3}
   m_PrefabInstance: {fileID: 851753774}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &883789571 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7696548424635294048, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-  m_PrefabInstance: {fileID: 1853245495}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &938238394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,17 +2490,44 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.15, y: 3.45, z: 3.79}
   m_Center: {x: 0, y: 2, z: 0.26}
+--- !u!54 &1342935238
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342935233}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1409383169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,10 +2648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9922baec383b7e04fb44a32adc75aa27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 883789571}
-  deer: {fileID: 1342935233}
-  carrot: {fileID: 984140376}
-  offset: {x: 1, y: 0, z: 0}
 --- !u!1 &1414516755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,6 +3888,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6283867120446095090, guid: be012014949c4e2479b9f57d7bd73f13, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865907190577222708, guid: be012014949c4e2479b9f57d7bd73f13, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865907190577222708, guid: be012014949c4e2479b9f57d7bd73f13, type: 3}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8683309460389274274, guid: be012014949c4e2479b9f57d7bd73f13, type: 3}
