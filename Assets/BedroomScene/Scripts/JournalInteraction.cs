@@ -1,17 +1,19 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
 
 public class JournalInteraction : MonoBehaviour
 {
     public AudioClip voiceClip1;
     public AudioClip voiceClip2;
     public TextMeshProUGUI floatingText;
-    private AudioSource audioSource;
+    public AudioSource audioSource; // Add this field
     private XRGrabInteractable grabInteractable;
     private bool isInteracted = false;
     private bool hasPlayedAudio = false;
     private readonly object lockObject = new object();
+    private bool hasPlayed = false; // Add this flag
 
     void Start()
     {
@@ -20,59 +22,50 @@ public class JournalInteraction : MonoBehaviour
         floatingText.enabled = false;
         Debug.Log("JournalInteraction started.");
 
+        // Subscribe to grab events
+        grabInteractable.selectEntered.AddListener(OnGrab);
+        
         // Disable the audio source at the start
         audioSource.enabled = false;
-
-        // Use the newer selectEntered event instead of deprecated onSelectEntered
-        grabInteractable.selectEntered.AddListener(OnGrab);
-    }
-
-    void OnDestroy()
-    {
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectEntered.RemoveListener(OnGrab);
-        }
     }
 
     private void OnGrab(SelectEnterEventArgs args)
     {
-        lock (lockObject)
+        if (!hasPlayedAudio)
         {
-            if (!hasPlayedAudio)
+            audioSource.enabled = true;
+            if (voiceClip1 != null)
             {
-                // Enable and play the audio source when the journal is grabbed
-                audioSource.enabled = true;
+                audioSource.clip = voiceClip1;
                 audioSource.Play();
-                hasPlayedAudio = true;
-
-                if (!isInteracted)
-                {
-                    isInteracted = true;
-                    PlayVoiceClip();
-                    ShowFloatingText();
-                }
             }
+            hasPlayedAudio = true; // Set flag to prevent future plays
+            isInteracted = true;
+            StartCoroutine(ShowTextAfterDelay(6f)); // Start coroutine to show text after 6 seconds
         }
     }
 
-    void PlayVoiceClip()
+    private IEnumerator ShowTextAfterDelay(float delay)
     {
-        audioSource.clip = voiceClip1;
-        audioSource.Play();
-        audioSource.PlayOneShot(voiceClip1);
-        Invoke("PlaySecondVoiceClip", voiceClip1.length);
+        yield return new WaitForSeconds(delay);
+        floatingText.enabled = true; // Enable the text after the delay
     }
 
-    void PlaySecondVoiceClip()
+    private void OnTriggerEnter(Collider other)
     {
-        audioSource.clip = voiceClip2;
-        audioSource.Play();
+        if (!hasPlayed)
+        {
+            audioSource.Play(); // Play the audio clip
+            hasPlayed = true; // Set the flag to true to prevent replay
+        }
     }
 
-    void ShowFloatingText()
+    private void OnDestroy()
     {
-        floatingText.text = "Touch the doorknob to head to the UBC Courtyard.";
-        floatingText.enabled = true;
+        // Clean up event subscription
+        if (grabInteractable != null)
+        {
+            grabInteractable.selectEntered.RemoveListener(OnGrab);
+        }
     }
 }
