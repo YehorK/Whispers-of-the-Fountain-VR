@@ -36,6 +36,10 @@ Navigatioon Arrow:
 
 https://poly.pizza/m/1TUCDmHZKQY
 
+Carrot:
+
+https://poly.pizza/m/59muuwqSsq
+
 
 Asset Attributions:
 House Interior by Alex Safayan [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/7IGvVkETcSt)
