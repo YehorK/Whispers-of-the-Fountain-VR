@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CrystalBehavior : MonoBehaviour
+public class FragmentCrystalColorChange : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;   // Speed of the vertical movement (up and down)
     [SerializeField] private float moveDistance = 0.1f;  // How much the object moves on the Y-axis
