@@ -28,6 +28,7 @@ public class CrystalShine : MonoBehaviour
         shineSpeed = shineIntensity / shineDuration;
 
         // Start the periodic shine effect
+        Debug.Log("Getting to invokerepeating");
         InvokeRepeating("ToggleShine", 0f, shineDuration);  // Toggle shine every 'shineDuration' seconds
     }
 
@@ -44,14 +45,14 @@ public class CrystalShine : MonoBehaviour
     // This method toggles the shining effect
     private void ToggleShine()
     {
-       // Debug.Log("shining");
+        Debug.Log("shining");
         // Flip the shine state
         isShining = !isShining;
     }
 
-    void OnDisable()
-    {
-        // Clean up by stopping the periodic calls when the object is disabled
-        CancelInvoke();
-    }
+    //void OnDisable()
+    //{
+    //    // Clean up by stopping the periodic calls when the object is disabled
+    //    CancelInvoke();
+    //}
 }

@@ -26,7 +26,7 @@ public class DeerFollowCarrot : MonoBehaviour
 
         // Check if the carrot is close enough
         float distanceToCarrot = Vector3.Distance(deer.transform.position, carrot.transform.position);
-        Debug.Log(distanceToCarrot);
+        //Debug.Log(distanceToCarrot);
 
         if (distanceToCarrot <= detectionRange && distanceToCarrot >= 1)
         {

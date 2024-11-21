@@ -5,6 +5,8 @@ public class CrystalCollector : MonoBehaviour
     [SerializeField] private GameObject[] crystals;  // Array of all the crystals in the path
     private int currentCrystalIndex = 0;  // Index of the current crystal to collect
 
+    public CrystalShine crystalShine;
+
     void Start()
     {
         // Initially hide all crystals except the first one
@@ -33,7 +35,9 @@ public class CrystalCollector : MonoBehaviour
                 }
 
                 // Optionally, you can disable the current crystal to simulate collection
+               
                 crystals[currentCrystalIndex].SetActive(false);
+                Destroy(crystals[currentCrystalIndex]);
                 break;
             }
         }
