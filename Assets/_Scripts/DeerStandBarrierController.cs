@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BarrierController : MonoBehaviour
+public class DeerStandBarrierController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
