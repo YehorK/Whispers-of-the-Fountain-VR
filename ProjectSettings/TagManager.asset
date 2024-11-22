@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Carrot
   - Deer
+  - sparkles
+  - snake
   layers:
   - Default
   - TransparentFX
