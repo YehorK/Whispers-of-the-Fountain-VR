@@ -5,7 +5,7 @@ public class CrystalCollector : MonoBehaviour
     [SerializeField] private GameObject[] crystals;  // Array of all the crystals in the path
     private int currentCrystalIndex = 0;  // Index of the current crystal to collect
 
-    public CrystalShine crystalShine;
+    //public CrystalShine crystalShine;
 
     void Start()
     {
