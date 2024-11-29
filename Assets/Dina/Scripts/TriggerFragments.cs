@@ -1,5 +1,13 @@
 using UnityEngine;
 
+/*
+ * This Script handles the appearing of fragments/journal in the ending scene
+    * On trigger of the fountain area, the parent object "--fragments" is active
+    * The objects with "crystal" tag are activated
+    * the script tracks when they are destroyed
+    * If destroyed (object = null), the journal appears (tag: "finalJournal") 
+ */
+
 public class TriggerFragments : MonoBehaviour
 {
     public GameObject parentObject; // The parent object to activate

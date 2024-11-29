@@ -1,6 +1,12 @@
 using Unity.XR.CoreUtils;
 using UnityEngine;
 
+/*
+ * This Script handles the triggering of Ogopogo Appearance script! -> Invoking script happens here
+ * The script checks if whether the parent "--fragments" still has any children left
+ * If no children left (everything thrown into the fountain), Ogopogo appears and rises from the fountain!
+ */
+
 public class TriggerOgopogo : MonoBehaviour
 {
     public OgopogoAppearance ogopogoScript; // Reference to OgopogoAppearance script

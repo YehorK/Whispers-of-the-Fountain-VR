@@ -1,4 +1,8 @@
 using UnityEngine;
+/*
+ * This Script handles Water splashing!
+ * whenever an object of tag "snake", "crystal" or "finalJournal" hits the water plane, a splash sound is played
+ */
 
 public class SplashWater : MonoBehaviour
 {

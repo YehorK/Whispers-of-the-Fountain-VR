@@ -1,5 +1,11 @@
 using UnityEngine;
 
+/*
+ * This script controls Fog intensity
+ * whenever the snake gameObject starts rising, the fog increases
+ * whenever it stops, the fog returns to normal!
+ */
+
 public class FogControl : MonoBehaviour
 {
     private Vector3 lastPosition;

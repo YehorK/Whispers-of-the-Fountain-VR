@@ -1,4 +1,8 @@
 using UnityEngine;
+/*
+ * This Script handles the appearing of Ogopogo!
+ * Whenever invoked, Ogopogo starts rising and animation is played :)
+ */
 
 public class OgopogoAppearance : MonoBehaviour
 {

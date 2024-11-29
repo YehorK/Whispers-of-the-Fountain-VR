@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+/*
+ * This Script handles throwing any object!
+ * The object can be grabbed and thrown when released
+ * If object hits the "fountain" tag, the object is destroyed!
+ */
+
 public class Throwable : MonoBehaviour
 {
     public float throwForce = 50f; // The force applied when throwing

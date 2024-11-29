@@ -1,4 +1,8 @@
 using UnityEngine;
+/*
+ * This Script handles the particle system above the fountain.
+ * It mainly control its color (white) and rotation.
+ */
 
 public class SparkleEffectController : MonoBehaviour
 {
