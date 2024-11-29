@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Carrot
   - Deer
+  - sparkles
+  - snake
+  - fountain
+  - crystal
+  - finalJournal
   layers:
   - Default
   - TransparentFX
