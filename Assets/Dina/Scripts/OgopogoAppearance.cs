@@ -2,25 +2,24 @@ using UnityEngine;
 
 public class OgopogoAppearance : MonoBehaviour
 {
-    public Transform fountainTop; // Assign the fountain's water surface level
-    private float riseHeight = 2f; // How high the snake rises above the water
+    public GameObject snake; // Assign the snake's transform
+    private float riseHeight = 5f; // How high the snake rises above its current position
     private float riseSpeed = 2f; // Speed of rising
     private float delayBeforeRising = 1f; // Delay before the snake starts appearing
 
-    private Vector3 startPosition;
     private Vector3 targetPosition;
     private bool isRising = false;
 
     private Animator animator; // Reference to the Animator component
 
-    void Start()
+    public void Start()
     {
         // Get the Animator component attached to the snake
-        animator = GetComponent<Animator>();
+        animator = snake.GetComponent<Animator>();
 
-        // Set initial and target positions
-        startPosition = transform.position;
-        targetPosition = fountainTop.position + Vector3.up * riseHeight;
+        // Set the target position to rise upwards from the snake's current position (keeping X and Z fixed)
+        targetPosition = new Vector3(snake.transform.position.x, 
+            snake.transform.position.y + riseHeight, snake.transform.position.z);
 
         // Start the rising process after a delay
         Invoke(nameof(StartRising), delayBeforeRising);
@@ -30,11 +29,11 @@ public class OgopogoAppearance : MonoBehaviour
     {
         if (isRising)
         {
-            // Smoothly move the snake upwards
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, riseSpeed * Time.deltaTime);
+            // Smoothly move the snake upwards (along the Y axis only)
+            snake.transform.position = Vector3.MoveTowards(snake.transform.position, targetPosition, riseSpeed * Time.deltaTime);
 
             // Stop when the target position is reached and start the idle animation
-            if (transform.position == targetPosition)
+            if (snake.transform.position == targetPosition)
             {
                 isRising = false;
                 PlayIdleAnimation(); // Trigger the idle animation
@@ -42,11 +41,13 @@ public class OgopogoAppearance : MonoBehaviour
         }
     }
 
-    private void StartRising()
+    // Start the rising motion
+    public void StartRising()
     {
         isRising = true;
     }
 
+    // Play the idle animation
     private void PlayIdleAnimation()
     {
         if (animator != null)
@@ -58,5 +59,11 @@ public class OgopogoAppearance : MonoBehaviour
         {
             Debug.LogWarning("Animator not assigned or missing on the snake object.");
         }
+    }
+
+    // Set the snake Transform (can be assigned via script)
+    public void SetSnake(GameObject snake)
+    {
+        this.snake = snake;
     }
 }

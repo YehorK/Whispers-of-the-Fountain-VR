@@ -8,6 +8,8 @@ TagManager:
   - Deer
   - sparkles
   - snake
+  - fountain
+  - crystal
   layers:
   - Default
   - TransparentFX

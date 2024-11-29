@@ -14,7 +14,7 @@ public class SparkleEffectController : MonoBehaviour
         // Configure the main module
         var mainModule = particleSystem.main;
         mainModule.startSize = 0.1f; // Size of the sparkles
-        mainModule.startColor = new ParticleSystem.MinMaxGradient(Color.black,  new Color(0.9f, 0.9f, 0.9f)); 
+        mainModule.startColor = new ParticleSystem.MinMaxGradient(Color.white,  new Color(0.9f, 0.9f, 0.9f)); 
         mainModule.simulationSpace = ParticleSystemSimulationSpace.Local;
 
         // Configure emission

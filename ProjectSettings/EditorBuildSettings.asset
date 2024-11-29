@@ -8,12 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/HomeMenuScene.unity
     guid: df65a8d906131d2468c6dc29c4116561
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/BedroomScene.unity
     guid: 9a35ab7efa3ce2a4f97cce5bc3277283
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/MainScene.unity
     guid: 88743a549c5bf414ba3c62f610bf7e6b
+  - enabled: 1
+    path: Assets/Dina/MainSceneDina.unity
+    guid: 452542c2af5bfb548bab52db0bb70f41
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 293e65fc8b9f48c4393e97cf45cf2de4, type: 2}
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: d311ba5fc810f324cb8660394656a880, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: e1bf759f485d00e4fa3ac4866d4c7bc0, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a001e96da19c6824cbca823f36b3bd08, type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 740cd47127ff81c43b526af6396d2e16, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: d1eea048fbdb8414ab19ffa56a1a15b2, type: 2}
