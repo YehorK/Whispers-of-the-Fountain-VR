@@ -3,7 +3,7 @@ using UnityEngine;
 public class OgopogoAppearance : MonoBehaviour
 {
     public GameObject snake; // Assign the snake's transform
-    private float riseHeight = 5f; // How high the snake rises above its current position
+    private float riseHeight = 4f; // How high the snake rises above its current position
     private float riseSpeed = 2f; // Speed of rising
     private float delayBeforeRising = 1f; // Delay before the snake starts appearing
 
@@ -35,8 +35,8 @@ public class OgopogoAppearance : MonoBehaviour
             // Stop when the target position is reached and start the idle animation
             if (snake.transform.position == targetPosition)
             {
-                isRising = false;
                 PlayIdleAnimation(); // Trigger the idle animation
+                isRising = false;
             }
         }
     }
