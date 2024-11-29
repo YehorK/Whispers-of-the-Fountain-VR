@@ -5733,6 +5733,7 @@ GameObject:
   - component: {fileID: 1476553962}
   - component: {fileID: 1476553961}
   - component: {fileID: 1476553963}
+  - component: {fileID: 1476553964}
   m_Layer: 0
   m_Name: -- ending scene
   m_TagString: Untagged
@@ -5794,6 +5795,21 @@ MonoBehaviour:
   parentObject: {fileID: 1836028224}
   crystalTag: crystal
   journalTag: finalJournal
+--- !u!114 &1476553964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476553960}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6ceb2fb5744510a502589c9cbeca53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  ogopogoScript: {fileID: 780642644}
+  snake: {fileID: 156801566}
 --- !u!1001 &1527747783
 PrefabInstance:
   m_ObjectHideFlags: 0
