@@ -15,7 +15,7 @@ public class SplashWater : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object entering the trigger is a crystal
-        if (other.gameObject.CompareTag("snake")) // Tag your crystals as "Crystal"
+        if (other.gameObject.CompareTag("snake") || other.gameObject.CompareTag("crystal") || other.gameObject.CompareTag("finalJournal")) 
         {
             // Play the splash sound (only if the sound is assigned)
             if (audioSource != null && splashSound != null)
