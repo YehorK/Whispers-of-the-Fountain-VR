@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deer: {fileID: 1342935233}
   carrot: {fileID: 1356628613}
-  detectionRange: 10
+  detectionRange: 15
   followSpeed: 2
 --- !u!1001 &550309256
 PrefabInstance:
