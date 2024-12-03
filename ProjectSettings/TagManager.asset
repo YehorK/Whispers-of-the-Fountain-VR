@@ -11,6 +11,7 @@ TagManager:
   - fountain
   - crystal
   - finalJournal
+  - Fragment2Fountain
   layers:
   - Default
   - TransparentFX
