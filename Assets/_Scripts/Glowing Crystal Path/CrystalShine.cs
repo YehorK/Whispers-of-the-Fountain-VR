@@ -45,7 +45,7 @@ public class CrystalShine : MonoBehaviour
     // This method toggles the shining effect
     private void ToggleShine()
     {
-        Debug.Log("shining");
+        //Debug.Log("shining");
         // Flip the shine state
         isShining = !isShining;
     }
