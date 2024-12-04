@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+
 public class SayTutorialLines : MonoBehaviour
 {
     public AudioClip journalVoiceClip; // Assign the voice clip in the inspector
@@ -14,7 +15,14 @@ public class SayTutorialLines : MonoBehaviour
         }
 
         audioSource.clip = journalVoiceClip;
-        audioSource.playOnAwake = false;
+        audioSource.playOnAwake = false; // Disable play on awake
+        StartCoroutine(PlayVoiceAfterDelay(3f)); // Start coroutine to play after delay
+    }
+
+    private IEnumerator PlayVoiceAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        PlayJournalVoice();
     }
 
     public void PlayJournalVoice()

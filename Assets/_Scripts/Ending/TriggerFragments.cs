@@ -13,6 +13,7 @@ public class TriggerFragments : MonoBehaviour
     public GameObject parentObject; // The parent object to activate
     public string crystalTag = "crystal"; // The tag of the child objects to activate first
     public string journalTag = "finalJournal"; // The tag of the child objects to activate after the first ones are destroyed
+    public BoundingBoxTrigger boundingBoxTrigger;
 
     private bool isFirstTagDestroyed = false; // Flag to check if the first tag objects are destroyed
 
@@ -23,22 +24,27 @@ public class TriggerFragments : MonoBehaviour
         {
             Debug.LogError("Parent object not assigned in the Inspector.");
         }
+
+        if (boundingBoxTrigger != null)
+        {
+            boundingBoxTrigger.onPlayerEnter.AddListener(ActivateChildren);
+        }
+        else
+        {
+            Debug.LogError("BoundingBoxTrigger not assigned in the Inspector.");
+        }
     }
 
-    void OnTriggerEnter(Collider other)
+    private void ActivateChildren()
     {
-        // Check if the approaching object is the player
-        if (other.CompareTag("Player")) // Ensure your player is tagged as "Player"
+        Debug.Log("Player has unlocked the area. Activating specific children.");
+        if (parentObject != null)
         {
-            Debug.Log("Player has approached the area. Activating specific children.");
-            if (parentObject != null)
-            {
-                // Activate the parent object
-                parentObject.SetActive(true);
+            // Activate the parent object
+            parentObject.SetActive(true);
 
-                // Activate all child objects with the first tag
-                ActivateChildrenWithTag(crystalTag);
-            }
+            // Activate all child objects with the first tag
+            ActivateChildrenWithTag(crystalTag);
         }
     }
 
