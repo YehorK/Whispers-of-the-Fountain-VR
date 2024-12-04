@@ -48,7 +48,7 @@ public class JournalProximity : MonoBehaviour
     private IEnumerator WaitForVoiceToEnd()
     {
         yield return new WaitForSeconds(audioSource.clip.length);
-        yield return new WaitForSeconds(3f); // Wait for an additional 3 seconds
+        yield return new WaitForSeconds(1f); // Wait for an additional 1 seconds
         gameObject.SetActive(false); // Make the journal disappear
     }
 }
