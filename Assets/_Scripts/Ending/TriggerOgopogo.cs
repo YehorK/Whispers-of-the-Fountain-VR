@@ -29,12 +29,10 @@ public class TriggerOgopogo : MonoBehaviour
         foreach (Transform child in transform)
         {
             // Check if the child GameObject is destroyed (null)
-            if (child == null) // This means the child has been destroyed
+            if (child != null) // This means the child has been destroyed
             {
-                continue; // Skip this child
+                return false; // Skip this child
             }
-
-            return false; // Return false if any child is still alive
         }
 
         return true; // All children are destroyed

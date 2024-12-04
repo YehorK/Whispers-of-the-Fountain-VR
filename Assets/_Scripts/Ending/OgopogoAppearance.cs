@@ -7,9 +7,9 @@ using UnityEngine;
 public class OgopogoAppearance : MonoBehaviour
 {
     public GameObject snake; // Assign the snake's transform
-    private float riseHeight = 4f; // How high the snake rises above its current position
-    private float riseSpeed = 2f; // Speed of rising
-    private float delayBeforeRising = 2f; // Delay before the snake starts appearing
+    public float riseHeight = 4f; // How high the snake rises above its current position
+    public float riseSpeed = 2f; // Speed of rising
+    private float delayBeforeRising = 4f; // Delay before the snake starts appearing
 
     private Vector3 targetPosition;
     private bool isRising = false;
