@@ -1890,7 +1890,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1572487695}
+  m_Camera: {fileID: 2101139963}
   m_PlaneDistance: 0.4
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1932,7 +1932,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 774153212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f64ed28f3beafd84db5c71921491be2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0071ca96bdf878045a89ec7c1e9a9631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   storyText: {fileID: 1845988106}
@@ -2035,7 +2035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f6bf3d943ac7945842268c9ef1dca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1785747715}
+  m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -2173,7 +2173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f6bf3d943ac7945842268c9ef1dca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1785747715}
+  m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -2692,10 +2692,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1275709892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9d2c01fd0aabf48a11865f8b8d147b, type: 3}
+  m_Script: {fileID: 11500000, guid: 88a1a4078ab39fd4690c534921dbd563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  journalInteraction: {fileID: 0}
+  journalInteraction: {fileID: 1950104165}
 --- !u!23 &1275709895
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2780,7 +2780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1785747715}
+  m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -3372,11 +3372,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 590920203943337664, guid: 29249aec19e50fe45b97995896ec70f6, type: 3}
---- !u!20 &1572487695 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 9014170783809206330, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-  m_PrefabInstance: {fileID: 662285928}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601138355 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3560051407819045395, guid: 29249aec19e50fe45b97995896ec70f6, type: 3}
@@ -4076,7 +4071,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2f1a53131cd9c0846b701366c97f57be, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4196,7 +4191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1785747715}
+  m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -4372,11 +4367,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1950104159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa36dc0c58343924cae58a1cad4337f9, type: 3}
+  m_Script: {fileID: 11500000, guid: ed54f8e2c0d7c5845a9d23e1adc42084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   voiceClip1: {fileID: 8300000, guid: ab70c9b180988f8499be492317ae9212, type: 3}
-  voiceClip2: {fileID: 8300000, guid: 2f1a53131cd9c0846b701366c97f57be, type: 3}
+  voiceClip2: {fileID: 0}
   floatingText: {fileID: 331972633}
   audioSource: {fileID: 0}
 --- !u!1 &1998716324 stripped
@@ -4487,6 +4482,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -942650003312263580, guid: 29249aec19e50fe45b97995896ec70f6, type: 3}
+--- !u!20 &2101139963 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9014170783809206330, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 662285928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4496,6 +4496,6 @@ SceneRoots:
   - {fileID: 96544958}
   - {fileID: 1181914551}
   - {fileID: 1489241529}
-  - {fileID: 662285928}
   - {fileID: 774153216}
+  - {fileID: 662285928}
   - {fileID: 1950104158}
