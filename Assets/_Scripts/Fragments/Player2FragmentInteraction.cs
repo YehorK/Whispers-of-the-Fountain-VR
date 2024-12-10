@@ -17,21 +17,21 @@ public class Player2FragmentInteraction : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        // Setup VR grab interaction
-        grabInteractable = GetComponent<XRGrabInteractable>();
-        if (grabInteractable == null)
-        {
-            grabInteractable = gameObject.AddComponent<XRGrabInteractable>();
-        }
+        //// Setup VR grab interaction
+        //grabInteractable = GetComponent<XRGrabInteractable>();
+        //if (grabInteractable == null)
+        //{
+        //    grabInteractable = gameObject.AddComponent<XRGrabInteractable>();
+        //}
 
-        // Configure grab interactable
-        grabInteractable.selectEntered.AddListener(OnGrabbed);
+        //// Configure grab interactable
+        //grabInteractable.selectEntered.AddListener(OnGrabbed);
     }
 
-    private void OnGrabbed(SelectEnterEventArgs args)
-    {
-        CollectFragment();
-    }
+    //private void OnGrabbed(SelectEnterEventArgs args)
+    //{
+    //    CollectFragment();
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -64,11 +64,11 @@ public class Player2FragmentInteraction : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnDestroy()
-    {
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectEntered.RemoveListener(OnGrabbed);
-        }
-    }
+    //private void OnDestroy()
+    //{
+    //    if (grabInteractable != null)
+    //    {
+    //        grabInteractable.selectEntered.RemoveListener(OnGrabbed);
+    //    }
+    //}
 }
