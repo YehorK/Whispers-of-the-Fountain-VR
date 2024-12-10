@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -6,7 +7,6 @@ public class Player2FragmentInteraction : MonoBehaviour
     public FragmentCollectionSceneActivation fragmentCollectionSceneActivation;
     private AudioSource audioSource;
     public AudioClip collectionSound;
-    private XRGrabInteractable grabInteractable;
 
     void Start()
     {
@@ -17,21 +17,7 @@ public class Player2FragmentInteraction : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        //// Setup VR grab interaction
-        //grabInteractable = GetComponent<XRGrabInteractable>();
-        //if (grabInteractable == null)
-        //{
-        //    grabInteractable = gameObject.AddComponent<XRGrabInteractable>();
-        //}
-
-        //// Configure grab interactable
-        //grabInteractable.selectEntered.AddListener(OnGrabbed);
     }
-
-    //private void OnGrabbed(SelectEnterEventArgs args)
-    //{
-    //    CollectFragment();
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,6 +35,24 @@ public class Player2FragmentInteraction : MonoBehaviour
             Debug.Log("Attempting to play sound: " + collectionSound.name);
             audioSource.PlayOneShot(collectionSound);
         }
+        else 
+        {
+            Debug.Log("collectionSound is null");
+        }
+
+        // Wait for the audio to finish before deactivating the object
+        StartCoroutine(DeactivateAfterSound());
+
+
+        // Deactivate or destroy the object after collection
+        // DONT NEED IT, SINCE EVERYTHING IS HANDLED BY THE GAME PROGRESS MANAGER
+        //gameObject.SetActive(false);
+    }
+
+    private IEnumerator DeactivateAfterSound()
+    {
+        // Wait for the sound to finish
+        yield return new WaitForSeconds(collectionSound.length);
 
         // Trigger the collection in the InteractionManager
         if (fragmentCollectionSceneActivation != null)
@@ -59,16 +63,6 @@ public class Player2FragmentInteraction : MonoBehaviour
         {
             Debug.LogWarning("InteractionManager is not assigned to this collectible object.");
         }
-
-        // Deactivate or destroy the object after collection
-        gameObject.SetActive(false);
     }
 
-    //private void OnDestroy()
-    //{
-    //    if (grabInteractable != null)
-    //    {
-    //        grabInteractable.selectEntered.RemoveListener(OnGrabbed);
-    //    }
-    //}
 }
