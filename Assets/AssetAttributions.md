@@ -45,3 +45,11 @@ Asset Attributions:
 House Interior by Alex Safayan [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/7IGvVkETcSt)
 
 Trees & Rocks by Sham Al Bdour [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/aAIOBNEaD5M)
+
+
+Sound Attributions:
+Green Path Pickup Sound Effect by <a href="https://pixabay.com/users/liecio-3298866/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=190037">LIECIO</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=190037">Pixabay</a>
+
+Soul Fragment Pickup Sound Effect by <a href="https://pixabay.com/users/u_8e8ungop1x-44656636/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=268648">u_8e8ungop1x</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=268648">Pixabay</a>
+
+All voices are original. 
