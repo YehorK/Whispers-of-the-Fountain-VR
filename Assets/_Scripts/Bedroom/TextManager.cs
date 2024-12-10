@@ -20,7 +20,7 @@ public class TextManager : MonoBehaviour
             "What a lovely morning! Press Right Trigger to continue.",
             "Its the weekend, and you have nothing to do. Press Right Trigger to continue.",
             "But what's that on the chair? You don't remember having any old books like that at home... Press Right Trigger.",
-            "Did it just talk to me? Walk or Teleport to the journal and grab it with the grip button" // Add the new text
+            "Did it just talk to me? \nControls: Walk with the left joystick. \nTeleport by holding the right joystick upwards and pointing your right controller to where you'd like to go. \nGrab items using the grip button on your left or right controller.\nWalk or Teleport to the journal and grab it with the grip button"
         };
         UpdateText();
         actionReference.action.performed += OnActionPerformed;
@@ -60,7 +60,7 @@ public class TextManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         UpdateText();
-        StartCoroutine(HideTextAfterDelay(4f)); // Hide the text after 3 seconds
+        StartCoroutine(HideTextAfterDelay(12f)); // Hide the text after 12 seconds
     }
 
     private IEnumerator HideTextAfterDelay(float delay)
