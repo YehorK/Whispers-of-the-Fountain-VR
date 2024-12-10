@@ -1,15 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CrystalDetect : MonoBehaviour
 {
-    private CrystalCollector collector;  // Reference to the CrystalCollector script
+    private CrystalCollector collector;
+    private AudioSource audioSource;
+    public AudioClip collectionSound; // Drag your sound file in the Unity Inspector
 
     void Start()
     {
-        // Find the CrystalCollector in the scene (it should be attached to a manager GameObject)
+        // Find the CrystalCollector in the scene
         collector = GameObject.FindObjectOfType<CrystalCollector>();
+        
+        // Get or add AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
 
         if (collector == null)
         {
@@ -17,17 +24,18 @@ public class CrystalDetect : MonoBehaviour
         }
     }
 
-    // This method will be called when the player triggers the crystal collider
     void OnTriggerEnter(Collider other)
     {
-        // Check if the object that collided with the crystal is the player
         if (other.CompareTag("Player"))
         {
-            // Log which crystal was collected (for debugging purposes)
-            Debug.Log("Crystal Collected: " + gameObject.name);
+            // Play collection sound if assigned
+            if (collectionSound != null)
+            {
+                audioSource.PlayOneShot(collectionSound);
+            }
 
-            // Call the CollectCrystal method in CrystalCollector to handle the collection
-            collector?.CollectCrystal(this.gameObject); // Pass this crystal to the manager for handling collection
+            Debug.Log("Crystal Collected: " + gameObject.name);
+            collector?.CollectCrystal(this.gameObject);
         }
     }
 }
