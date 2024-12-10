@@ -7,6 +7,7 @@ public class Player2FragmentInteraction : MonoBehaviour
     public FragmentCollectionSceneActivation fragmentCollectionSceneActivation;
     private AudioSource audioSource;
     public AudioClip collectionSound;
+    private new Renderer renderer;
 
     void Start()
     {
@@ -15,6 +16,12 @@ public class Player2FragmentInteraction : MonoBehaviour
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        renderer = GetComponent<Renderer>();
+        if (renderer == null)
+        {
+            Debug.LogWarning("Renderer not found on this GameObject.");
         }
 
     }
@@ -39,6 +46,9 @@ public class Player2FragmentInteraction : MonoBehaviour
         {
             Debug.Log("collectionSound is null");
         }
+
+        // setting the renderer to false to, but the object stays active to play the audio
+        renderer.enabled = false;
 
         // Wait for the audio to finish before deactivating the object
         StartCoroutine(DeactivateAfterSound());
