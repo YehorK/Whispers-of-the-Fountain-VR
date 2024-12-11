@@ -42,7 +42,7 @@ public class CarrotPositionReset : MonoBehaviour
     }
 
     // Reset the object's position to the empty GameObject's position
-    public void ResetObjectPosition()
+    private void ResetObjectPosition()
     {
         if (resetTransform != null)
         {

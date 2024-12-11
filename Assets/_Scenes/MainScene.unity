@@ -1482,6 +1482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deer: {fileID: 1342935233}
   carrot: {fileID: 1356628613}
+  carrotOriginalPosition: {fileID: 1203999140}
   detectionRange: 20
   followSpeed: 2
 --- !u!1 &521787053
@@ -15535,7 +15536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567860561754349895, guid: be012014949c4e2479b9f57d7bd73f13, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.351
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1567860561754349895, guid: be012014949c4e2479b9f57d7bd73f13, type: 3}
       propertyPath: m_LocalRotation.w

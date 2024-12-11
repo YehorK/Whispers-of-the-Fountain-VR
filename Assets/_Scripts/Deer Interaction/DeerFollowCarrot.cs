@@ -5,11 +5,11 @@ public class DeerFollowCarrot : MonoBehaviour
 {
     public GameObject deer;
     public GameObject carrot;         // Reference to the carrot GameObject
+    [SerializeField] Transform carrotOriginalPosition;
     public float detectionRange = 5.0f; // Range within which the deer detects the carrot
     public float followSpeed = 3.0f;  // Speed of the deer while following the carrot
 
     private DeerMoveBetweenPoints deerMovement;
-    private CarrotPositionReset carrotPositionReset;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class DeerFollowCarrot : MonoBehaviour
 
     void Update()
     {
-        if (carrot == null || deerMovement == null)
+        if (carrot == null || deerMovement == null || !carrot.activeSelf)
         {
             return;
         }
@@ -35,10 +35,10 @@ public class DeerFollowCarrot : MonoBehaviour
         }
         else if (distanceToCarrot < 1)
         {
-            Destroy(carrot);  // Destroy the carrot object
+            //Destroy(carrot);  // Destroy the carrot object
             Debug.Log("Carrot is eaten by the deer");
-            //carrot.SetActive(false);
-            //StartCoroutine(ResetCarrot());
+            carrot.SetActive(false);
+            StartCoroutine(ResetCarrot());
 
             deerMovement.SetFollowingCarrot(false);
         }
@@ -49,13 +49,14 @@ public class DeerFollowCarrot : MonoBehaviour
         }
     }
 
-    //private IEnumerator ResetCarrot()
-    //{
-    //    // Wait for 8 seconds before regenerating the carrot
-    //    yield return new WaitForSeconds(8f);
+    private IEnumerator ResetCarrot()
+    {
+        // Wait for 8 seconds before regenerating the carrot
+        yield return new WaitForSeconds(8f);
 
-    //    carrotPositionReset.ResetObjectPosition();
-    //}
+        carrot.transform.position = carrotOriginalPosition.position;
+        carrot.SetActive(true);
+    }
 
 
     void FollowCarrot()
