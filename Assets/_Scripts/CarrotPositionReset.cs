@@ -7,7 +7,7 @@ public class CarrotPositionReset : MonoBehaviour
 
     private Vector3 lastPosition; // To track the object's last position
     private float stationaryTime = 0f; // To track how long the object hasn't moved
-    [SerializeField] float resetTime = 10f; // Time in seconds to trigger the reset
+    [SerializeField] float resetTime = 8f; // Time in seconds to trigger the reset
 
     void Start()
     {
@@ -34,10 +34,15 @@ public class CarrotPositionReset : MonoBehaviour
             stationaryTime = 0f;
             lastPosition = transform.position;
         }
+
+        if (transform.position.y <= -2)
+        {
+            ResetObjectPosition();
+        }
     }
 
     // Reset the object's position to the empty GameObject's position
-    private void ResetObjectPosition()
+    public void ResetObjectPosition()
     {
         if (resetTransform != null)
         {

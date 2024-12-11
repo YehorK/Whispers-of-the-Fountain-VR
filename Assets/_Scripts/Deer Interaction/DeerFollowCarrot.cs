@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DeerFollowCarrot : MonoBehaviour
@@ -8,6 +9,7 @@ public class DeerFollowCarrot : MonoBehaviour
     public float followSpeed = 3.0f;  // Speed of the deer while following the carrot
 
     private DeerMoveBetweenPoints deerMovement;
+    private CarrotPositionReset carrotPositionReset;
 
     void Start()
     {
@@ -19,14 +21,11 @@ public class DeerFollowCarrot : MonoBehaviour
     {
         if (carrot == null || deerMovement == null)
         {
-            Debug.Log("carrot or deerMovement is null");
-
             return;
         }
 
         // Check if the carrot is close enough
         float distanceToCarrot = Vector3.Distance(deer.transform.position, carrot.transform.position);
-        //Debug.Log(distanceToCarrot);
 
         if (distanceToCarrot <= detectionRange && distanceToCarrot >= 1)
         {
@@ -37,6 +36,10 @@ public class DeerFollowCarrot : MonoBehaviour
         else if (distanceToCarrot < 1)
         {
             Destroy(carrot);  // Destroy the carrot object
+            Debug.Log("Carrot is eaten by the deer");
+            //carrot.SetActive(false);
+            //StartCoroutine(ResetCarrot());
+
             deerMovement.SetFollowingCarrot(false);
         }
         else
@@ -46,14 +49,12 @@ public class DeerFollowCarrot : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
+    //private IEnumerator ResetCarrot()
     //{
+    //    // Wait for 8 seconds before regenerating the carrot
+    //    yield return new WaitForSeconds(8f);
 
-    //    if (collision.gameObject.CompareTag("Deer"))
-    //    {
-    //        Debug.Log("Deer detected, destroying carrot.");
-    //        Destroy(gameObject);  // Destroy the carrot object
-    //    }
+    //    carrotPositionReset.ResetObjectPosition();
     //}
 
 
