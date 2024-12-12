@@ -35,16 +35,6 @@ public class TriggerOgopogo : MonoBehaviour
         // Check for objects with the specified tags
         foreach (GameObject obj in allObjects)
         {
-<<<<<<< Updated upstream
-            // Check if the child is still in the scene (not destroyed) and either active or inactive
-            if (child.gameObject != null)
-            {
-                return false; // If the child is not destroyed or is active/inactive, return false
-            }
-        }
-
-        return true; // All children are destroyed (or inactive) at this point
-=======
             if ((obj.CompareTag("crystal") || obj.CompareTag("finalJournal")) && obj.scene.IsValid())
             {
                 return true; // Return true if an object with the specified tags exists
@@ -52,7 +42,6 @@ public class TriggerOgopogo : MonoBehaviour
         }
 
         return false; // Return false if no objects with the specified tags are found
->>>>>>> Stashed changes
     }
     
     private void TriggerOgopogoAppearance()
