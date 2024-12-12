@@ -42,8 +42,7 @@ public class OgopogoAppearance : MonoBehaviour
                 PlayIdleAnimation(); // Trigger the idle animation
                 if (destroyAfter)
                 {
-                    GameObject snakeObj = transform.Find("snake")?.gameObject;
-                    Destroy(snakeObj);
+                    Destroy(gameObject);
                 } 
             }
         }
