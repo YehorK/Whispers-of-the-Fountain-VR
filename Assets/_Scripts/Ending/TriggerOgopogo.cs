@@ -15,19 +15,27 @@ public class TriggerOgopogo : MonoBehaviour
 
     private void Update()
     {
-        if (!hasTriggered && AreAllChildrenDestroyed())
-        {
-            Debug.Log("All child objects are inactive.");
-            hasTriggered = true;
-            TriggerOgopogoAppearance();
-        }
+        // Check if the trigger has already been activated
+        if (hasTriggered)
+            return;
+
+        // Check if any objects with the specified tags exist
+        if (AreAnyObjectsWithTagsPresent())
+            return;
+
+        // Trigger the appearance of Ogopogo
+        TriggerOgopogoAppearance();
     }
 
-    // Check if all child objects are inactive
-    private bool AreAllChildrenDestroyed()
+    private bool AreAnyObjectsWithTagsPresent()
     {
-        foreach (Transform child in transform)
+        // Get all objects in the scene
+        GameObject[] allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+
+        // Check for objects with the specified tags
+        foreach (GameObject obj in allObjects)
         {
+<<<<<<< Updated upstream
             // Check if the child is still in the scene (not destroyed) and either active or inactive
             if (child.gameObject != null)
             {
@@ -36,8 +44,17 @@ public class TriggerOgopogo : MonoBehaviour
         }
 
         return true; // All children are destroyed (or inactive) at this point
-    }
+=======
+            if ((obj.CompareTag("crystal") || obj.CompareTag("finalJournal")) && obj.scene.IsValid())
+            {
+                return true; // Return true if an object with the specified tags exists
+            }
+        }
 
+        return false; // Return false if no objects with the specified tags are found
+>>>>>>> Stashed changes
+    }
+    
     private void TriggerOgopogoAppearance()
     {
         Debug.Log("Triggering Ogopogo appearance logic.");
@@ -53,7 +70,8 @@ public class TriggerOgopogo : MonoBehaviour
 
         // Enable the OgopogoAppearance script
         ogopogoScript.enabled = true;
-
+        
+        hasTriggered = true;
         // Trigger the rising logic in OgopogoAppearance
         ogopogoScript.Start();
     }
