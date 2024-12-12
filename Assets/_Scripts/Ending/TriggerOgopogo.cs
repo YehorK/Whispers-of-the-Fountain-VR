@@ -28,14 +28,14 @@ public class TriggerOgopogo : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            // Check if the child GameObject is destroyed (null)
-            if (child != null) // This means the child has been destroyed
+            // Check if the child is still in the scene (not destroyed) and either active or inactive
+            if (child.gameObject != null)
             {
-                return false; // Skip this child
+                return false; // If the child is not destroyed or is active/inactive, return false
             }
         }
 
-        return true; // All children are destroyed
+        return true; // All children are destroyed (or inactive) at this point
     }
 
     private void TriggerOgopogoAppearance()
