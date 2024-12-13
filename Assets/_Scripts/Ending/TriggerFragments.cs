@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections; // To use IEnumerator
 
 /*
  * This Script handles the appearing of fragments/journal in the ending scene
@@ -81,11 +82,20 @@ public class TriggerFragments : MonoBehaviour
         if (allDestroyed && !isFirstTagDestroyed)
         {
             isFirstTagDestroyed = true; // Prevent multiple activations
-            ActivateChildrenWithTag(journalTag);
+            StartCoroutine(ActivateFinalJournalWithDelay());
             Debug.Log("All crystals destroyed. Activating final journal.");
         }
     }
+    
+    private IEnumerator ActivateFinalJournalWithDelay()
+    {
+        // Wait for 1 second
+        yield return new WaitForSeconds(1f);
 
+        // Activate all children with the "Journal" tag
+        ActivateChildrenWithTag(journalTag);
+    }
+    
     // Update method to continuously check if all first tag objects are destroyed
     void Update()
     {

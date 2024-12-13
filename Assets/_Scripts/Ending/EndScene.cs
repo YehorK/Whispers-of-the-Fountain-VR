@@ -41,7 +41,9 @@ public class EndScene : MonoBehaviour
             // Enable the OgopogoAppearance script
             ogopogoScript.enabled = true;
             ogopogoScript.riseHeight = 20f;
-
+            ogopogoScript.delayBeforeRising = 0f;
+            ogopogoScript.destroyAfter = true;
+            
             // Trigger initialization logic in OgopogoAppearance
             ogopogoScript.Start(); // Replace Start() with a custom method
         }

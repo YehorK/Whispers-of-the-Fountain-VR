@@ -1,52 +1,34 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-/*
- * This Script handles throwing any object!
- * The object can be grabbed and thrown when released
- * If object hits the "fountain" tag, the object is destroyed!
- */
-
 public class Throwable : MonoBehaviour
 {
-    //public float throwForce = 50f; // The force applied when throwing
-    //private Rigidbody rb;
-    //private XRGrabInteractable grabInteractable;
+    private XRGrabInteractable grabInteractable;
+    private bool isReleased = false;  // To track if the object has been released
 
-    //private void Start()
-    //{
-    //    // Get Rigidbody and XRGrabInteractable components
-    //    rb = GetComponent<Rigidbody>();
-    //    grabInteractable = GetComponent<XRGrabInteractable>();
+    private void Start()
+    {
+        // Get the XRGrabInteractable component
+        grabInteractable = GetComponent<XRGrabInteractable>();
 
-    //    // Listen to SelectEntered & SelectExited events
-    //    grabInteractable.onSelectEntered.AddListener(GrabObject);
-    //    grabInteractable.onSelectExited.AddListener(ThrowObject);
-    //}
+        // Add listener for the object being released (no longer grabbed)
+        grabInteractable.onSelectExited.AddListener(OnReleased);
+    }
 
-    //private void GrabObject(XRBaseInteractor interactor)
-    //{
-    //    // Mimic grabbing by disabling physics (kinematic mode)
-    //    rb.isKinematic = true;
-    //}
-
-    //private void ThrowObject(XRBaseInteractor interactor)
-    //{
-    //    // Mimic throwing by enabling physics and applying force in the throw direction
-    //    rb.isKinematic = false;
-
-    //    // Apply a throw force in the direction of the controller
-    //    Vector3 throwDirection = interactor.transform.forward; // Use the interactor's forward direction
-    //    rb.AddForce(throwDirection * throwForce);
-    //}
+    private void OnReleased(XRBaseInteractor interactor)
+    {
+        // The object has been released, set isReleased to true
+        isReleased = true;
+        Debug.Log($"{gameObject.name} has been released and is ready to be destroyed if it enters the fountain.");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the object entered the fountain trigger area
-        if (other.CompareTag("Fragment2Fountain"))
+        // Check if the object entered the fountain trigger area and if it has been released
+        if (isReleased && other.CompareTag("Fragment2Fountain"))
         {
-            Debug.Log($"{gameObject.name} entered the fountain and will be destroyed.");
-            Destroy(gameObject);
+            Debug.Log($"{gameObject.name} entered the fountain after being released and will be destroyed.");
+            Destroy(gameObject, 0);  // Destroy immediately on collision with the fountain
         }
     }
 }

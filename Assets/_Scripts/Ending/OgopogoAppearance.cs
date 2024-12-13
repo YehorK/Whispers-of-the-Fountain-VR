@@ -9,7 +9,8 @@ public class OgopogoAppearance : MonoBehaviour
     public GameObject snake; // Assign the snake's transform
     public float riseHeight = 4f; // How high the snake rises above its current position
     public float riseSpeed = 2f; // Speed of rising
-    private float delayBeforeRising = 4f; // Delay before the snake starts appearing
+    public float delayBeforeRising = 4f; // Delay before the snake starts appearing
+    public bool destroyAfter = false;
 
     private Vector3 targetPosition;
     private bool isRising = false;
@@ -39,6 +40,10 @@ public class OgopogoAppearance : MonoBehaviour
             {
                 isRising = false;
                 PlayIdleAnimation(); // Trigger the idle animation
+                if (destroyAfter)
+                {
+                    Destroy(gameObject);
+                } 
             }
         }
     }

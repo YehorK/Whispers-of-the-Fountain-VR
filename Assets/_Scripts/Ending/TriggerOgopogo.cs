@@ -15,29 +15,35 @@ public class TriggerOgopogo : MonoBehaviour
 
     private void Update()
     {
-        if (!hasTriggered && AreAllChildrenDestroyed())
-        {
-            Debug.Log("All child objects are inactive.");
-            hasTriggered = true;
-            TriggerOgopogoAppearance();
-        }
+        // Check if the trigger has already been activated
+        if (hasTriggered)
+            return;
+
+        // Check if any objects with the specified tags exist
+        if (AreAnyObjectsWithTagsPresent())
+            return;
+
+        // Trigger the appearance of Ogopogo
+        TriggerOgopogoAppearance();
     }
 
-    // Check if all child objects are inactive
-    private bool AreAllChildrenDestroyed()
+    private bool AreAnyObjectsWithTagsPresent()
     {
-        foreach (Transform child in transform)
+        // Get all objects in the scene
+        GameObject[] allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+
+        // Check for objects with the specified tags
+        foreach (GameObject obj in allObjects)
         {
-            // Check if the child GameObject is destroyed (null)
-            if (child != null) // This means the child has been destroyed
+            if ((obj.CompareTag("crystal") || obj.CompareTag("finalJournal")) && obj.scene.IsValid())
             {
-                return false; // Skip this child
+                return true; // Return true if an object with the specified tags exists
             }
         }
 
-        return true; // All children are destroyed
+        return false; // Return false if no objects with the specified tags are found
     }
-
+    
     private void TriggerOgopogoAppearance()
     {
         Debug.Log("Triggering Ogopogo appearance logic.");
@@ -53,7 +59,8 @@ public class TriggerOgopogo : MonoBehaviour
 
         // Enable the OgopogoAppearance script
         ogopogoScript.enabled = true;
-
+        
+        hasTriggered = true;
         // Trigger the rising logic in OgopogoAppearance
         ogopogoScript.Start();
     }
