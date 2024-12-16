@@ -4,7 +4,8 @@ using System.Collections;
 public class JournalAppearanceTrigger : MonoBehaviour
 {
     public BoundingBoxTrigger boundingBoxTrigger;
-    public AudioClip journalVoiceClip; // Assign the voice clip in the inspector
+    public AudioClip journalVoiceClip;
+    public GameObject prevJournal;
 
     private AudioSource audioSource;
 
@@ -30,6 +31,12 @@ public class JournalAppearanceTrigger : MonoBehaviour
 
     private void ShowJournal()
     {
+        // Deactivate previous journal if assigned
+        if (prevJournal != null)
+        {
+            prevJournal.SetActive(false);
+        }
+
         gameObject.SetActive(true);
         Debug.Log("Journal has appeared.");
         StartCoroutine(PlayAudioAfterDelay(1f));
