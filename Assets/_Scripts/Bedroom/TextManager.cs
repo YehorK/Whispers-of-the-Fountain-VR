@@ -22,8 +22,11 @@ public class TextManager : MonoBehaviour
             "But what's that on the chair? You don't remember having any old books like that at home... Press Right Trigger.",
             "Did it just talk to me? \nControls: Walk with the left joystick. \nTeleport by holding the right joystick upwards and pointing your right controller to where you'd like to go. \nGrab items using the grip button on your left or right controller.\nWalk or Teleport to the journal and grab it with the grip button"
         };
+
         UpdateText();
+
         actionReference.action.performed += OnActionPerformed;
+        Debug.Log(storyLines.Count);
     }
 
     void OnDestroy()
@@ -41,6 +44,7 @@ public class TextManager : MonoBehaviour
                 if (currentLineIndex == 3) // Check if it's the new text
                 {
                     audioSource.Play(); // Play the sound
+                    isFading = true;
                     StartCoroutine(ShowTextAfterDelay(3f)); // Show the text after 3 seconds
                 }
                 else
