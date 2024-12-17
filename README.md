@@ -10,7 +10,6 @@ The project also has an [AR implementation](https://github.com/YehorK/Whispers-o
 - [Video Demo](#video-demo)
 - [Storyline Overview](#storyline-overview)
 - [Project Features](#project-features)
-- [Future Works](#future-works)
 - [Acknowledgement](#acknowledgement)
 
 ## Project Setup
@@ -22,6 +21,9 @@ The project also has an [AR implementation](https://github.com/YehorK/Whispers-o
 [![Watch the video](https://img.youtube.com/vi/AP2FHY7DFlo/maxresdefault.jpg)](https://youtu.be/AP2FHY7DFlo)
 
 ## Storyline Overview
+Our project is an immersive VR experience taking players on a treasure-hunting adventure, blending mystery, humor, and local Okanagan lore. The story begins with the protagonist discovering an ancient journal at their house. The journal reveals the legend of Ogopogo, a spirit imprisoned beneath a fountain, whose freedom hinges on the retrieval of his scattered soul fragments. Guided by the journal, the player explores the UBCO Courtyard, solving puzzles and interacting with landmarks. 
+
+Whispering fragments offer both guiding clues and comic relief via 3D localized audio, as the player pieces together Ogopogo's spirit. The journey culminates at the fountain, where the player reunites the fragments to free Ogopogo. The story ends with a twist as Ogopogo’s sarcastic remarks challenge the expectations of treasure and reward. With our project, we hope to showcase potential for immersive storytelling, combining exploration, problem-solving, and a humor-driven narrative to create a captivating player experience. 
 
 ## Project Features
 In the game progression order we explain the storyline elements, the game logic as well as the implemented game core mechanics.
@@ -84,10 +86,6 @@ The player spawns in their bedroom at the house, where an ancient journal reveal
 - When the player comes back to the fountain, they are greeted again by the journal, requesting to throw 3 fragments into the fountain along with the journal. The interactions are implemented by detecting the colliders of different elements in the game.
 - When all the above-mentioned objects are destroyed, the Ogopogo rises from the center of the fountain & gives a humorous ending monologue.
 - After the speech has finished, the Ogopogo game object keeps rising until it disappears, ending the game. 
-
-
-## Future Works
-// tbd
 
 ## Acknowledgement
 The list of used assets is available in the Attributions file under Assets.
