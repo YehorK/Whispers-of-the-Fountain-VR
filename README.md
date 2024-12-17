@@ -27,20 +27,28 @@ The project also has an [AR implementation](https://github.com/YehorK/Whispers-o
 In the game progression order we explain the storyline elements, the game logic as well as the implemented game core mechanics.
 
 ### Journal Discovery
+<img src="Images/bedroom scene view.png" alt="Bedroom scene" style="width: 100%; max-width: 600px; height: auto;"/>
 // the bedroom, finding the journal, going to the ubco courtyard
 
 ### UBCO Courtyard Arrival
+<img src="Images/ubco scene view.png" alt="UBCO scene" style="width: 100%; max-width: 600px; height: auto;">
 - player spawing
 - greetings by the journal
 - the fountain sound
 - the fog
 - green guiding crystals
 
-### Fragment Whispers
-A
+### Fragment Features
+
+<b>Whispers:</b> 3D whispers + collection sound
+
+<b>Visual appearance:</b>
+- The fragments vary their colors within a rainbow spectrum (changing the hue, while keeping full saturation/brightness).
+- The fragments float in space, moving slightly up & down, waiting for the player to collect them.
+- A sound is played
 
 ### Fragment 1 Interactions
-A
+
 
 ### Fragment 2 Interactions
 A
@@ -55,3 +63,5 @@ A
 // tbd
 
 ## Acknowledgement
+
+
