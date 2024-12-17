@@ -15,7 +15,7 @@ The project also has an [AR implementation](https://github.com/YehorK/Whispers-o
 ## Project Setup
 - You can simply git clone the main branch, and you should be able to start playing; no further setup steps required.
 - The project is using Unity 2022.3.45f version.
-- Additionally, the build (.apk file) made for Quest 2 headset can be found here: 
+- Additionally, the build (.apk file) made for Quest 2 headset can be found [here](https://ubcca-my.sharepoint.com/:u:/r/personal/rishav_banerjee_ubc_ca/Documents/IMTC%20505%20(%2724)/ARcheologists/Whispers%20of%20the%20Fountain/the%20builds/Whispers%20of%20the%20Fountain%20VR.apk?csf=1&web=1&e=aWa3GF)
 
 ## Video demo:
 [![Watch the video](https://img.youtube.com/vi/AP2FHY7DFlo/maxresdefault.jpg)](https://youtu.be/AP2FHY7DFlo)
